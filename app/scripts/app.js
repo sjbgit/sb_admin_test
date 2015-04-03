@@ -95,7 +95,18 @@ angular
       })
         .state('dashboard.monitor',{
             templateUrl:'/views/monitor.html',
-            url:'/monitor'
+            controller: 'MonitorCtrl',
+            url:'/monitor',
+            resolve: {
+                loadMyFiles:function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name:'sbAdminApp',
+                        files:[
+                            'scripts/controllers/monitorController.js'
+                        ]
+                    })
+                }
+            }
         })
       .state('dashboard.form',{
         templateUrl:'/views/form.html',
