@@ -15,7 +15,7 @@ angular
     'angular-loading-bar',
   ])
   .config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function ($stateProvider,$urlRouterProvider,$ocLazyLoadProvider) {
-    
+
     $ocLazyLoadProvider.config({
       debug:false,
       events:true,
@@ -93,6 +93,10 @@ angular
           }
         }
       })
+        .state('dashboard.monitor',{
+            templateUrl:'/views/monitor.html',
+            url:'/monitor'
+        })
       .state('dashboard.form',{
         templateUrl:'/views/form.html',
         url:'/form'
