@@ -65,7 +65,7 @@ angular
                 {
                   name:'ngSanitize',
                   files:['bower_components/angular-sanitize/angular-sanitize.js']
-                })
+                }),
                 $ocLazyLoad.load(
                 {
                   name:'ngTouch',
@@ -102,7 +102,9 @@ angular
                     return $ocLazyLoad.load({
                         name:'sbAdminApp',
                         files:[
-                            'scripts/controllers/monitorController.js'
+                            'scripts/controllers/monitorController.js',
+                            'scripts/dist/socket.io.js',
+                            'scripts/services/socket.js'
                         ]
                     })
                 }
