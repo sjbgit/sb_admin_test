@@ -6,6 +6,28 @@ angular.module('sbAdminApp')
         $scope.info = 'this is the info';
 
 
+        $scope.safeApply = function (fn) {
+            var phase = this.$root.$$phase;
+            if (phase == '$apply' || phase == '$digest') {
+                if (fn && (typeof(fn) === 'function')) {
+                    fn();
+                }
+            } else {
+                this.$apply(fn);
+            }
+        };
+
+        $scope.changeValue = function() {
+
+            $scope.safeApply(function() {
+                $scope.value = 3;
+            });
+
+            //$scope.value = 3;
+            //$scope.$apply();
+        }
+
+
         //this works
         //var socket = io.connect('http://bppcount1.azurewebsites.net:80/');
 
@@ -15,7 +37,18 @@ angular.module('sbAdminApp')
 
         });
 
-        $scope.value = 3;
+        socket.on('counter', function (data) {
+            var counters = data.counters;
+            console.log('received counter message ------------');
+            console.log(counters[0].value);
+            $scope.safeApply(function() {
+                $scope.value = counters[0].value;
+            });
+
+        });
+
+
+        $scope.value = 1.5;
         $scope.upperLimit = 6;
         $scope.lowerLimit = 0;
         $scope.unit = "kW";
@@ -51,12 +84,12 @@ angular.module('sbAdminApp')
 
         /*
 
-        socket.on('message', function(data) {
+         socket.on('message', function(data) {
 
-            var x = data;
+         var x = data;
 
-        });
+         });
 
-        */
+         */
 
     }]);

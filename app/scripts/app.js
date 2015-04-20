@@ -71,12 +71,8 @@ angular
                                 {
                                     name: 'ngTouch',
                                     files: ['bower_components/angular-touch/angular-touch.js']
-                                }),
-                            $ocLazyLoad.load(
-                                {
-                                    name: 'ngTouch',
-                                    files: ['bower_components/angular-touch/angular-touch.js']
                                 })
+
 
                     }
                 }
@@ -141,6 +137,7 @@ angular
                             $ocLazyLoad.load({
                                 name: 'chart.js',
                                 files: [
+                                    'bower_components/Chart.js/Chart.js',
                                     'bower_components/angular-chart.js/dist/angular-chart.min.js',
                                     'bower_components/angular-chart.js/dist/angular-chart.css'
                                 ]
