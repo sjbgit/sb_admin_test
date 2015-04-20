@@ -8,6 +8,12 @@
  */
 angular.module('sbAdminApp')
   .controller('ChartCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
+		$scope.changeData = function() {
+			var data = [88, 22, 30, 90, 2, 78, 4];
+			$scope.line.data[0] = data;
+
+			$scope.bar.data[0] = [2, 90, 44, 76, 2, 12, 18];
+		}
     $scope.line = {
 	    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
 	    series: ['Series A', 'Series B'],

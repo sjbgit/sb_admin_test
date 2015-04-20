@@ -132,14 +132,14 @@ angular
                 resolve: {
                     loadMyFile: function ($ocLazyLoad) {
                         return $ocLazyLoad.load(
-                            'bower_components/Chart.js/Chart.min.js'
+                            //'bower_components/Chart.js/Chart.min.js'
                         ),
                             $ocLazyLoad.load({
                                 name: 'chart.js',
                                 files: [
-                                    'bower_components/Chart.js/Chart.js',
-                                    'bower_components/angular-chart.js/dist/angular-chart.min.js',
-                                    'bower_components/angular-chart.js/dist/angular-chart.css'
+                                    //'bower_components/Chart.js/Chart.js',
+                                    //'bower_components/angular-chart.js/dist/angular-chart.min.js',
+                                    //'bower_components/angular-chart.js/dist/angular-chart.css'
                                 ]
                             }),
                             $ocLazyLoad.load({
