@@ -1,0 +1,1 @@
+angular.module("sbAdminApp").controller("MonitorCtrl",["$scope","$timeout","socket",function($scope,$timeout,socket){$scope.info="this is the info",socket.on("counter",function(msg){console.log("received counter message ------------"),console.log(msg)})}]);
