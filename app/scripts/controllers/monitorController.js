@@ -160,6 +160,10 @@ angular.module('sbAdminApp')
 
         }
 
+        $scope.$on("$destroy", function() {
+
+        });
+
 
         /*
 
