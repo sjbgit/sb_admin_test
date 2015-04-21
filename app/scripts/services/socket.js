@@ -13,5 +13,6 @@ angular.module('sbAdminApp')
                     });
                 });
             }
+            //how and when to disconnect?
         };
     });

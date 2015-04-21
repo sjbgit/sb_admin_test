@@ -5,12 +5,23 @@ angular.module('sbAdminApp')
     .controller('MonitorCtrl', ['$scope', '$timeout', 'socket', function ($scope, $timeout, socket) {
         $scope.info = 'this is the info';
 
+        var destroyed = false;
 
         $scope.machineCounters = [];
 
 
 
         $scope.safeApply = function (fn) {
+
+            //trying to deal with 'Cannot read property '
+            /*
+            if (this.$root === null) {
+                return;
+            }
+            */
+            if (destroyed) {
+                return; 
+            }
             var phase = this.$root.$$phase;
             if (phase == '$apply' || phase == '$digest') {
                 if (fn && (typeof(fn) === 'function')) {
@@ -45,11 +56,20 @@ angular.module('sbAdminApp')
             var counters = data.counters;
             console.log('received counter message ------------');
             console.log(counters[0].value);
-            
+
+            /*
+            if (scope.$root && !scope.$root.$$phase) {
+                //scope.$apply();
+                $scope.safeApply(function() {
+                    $scope.value = counters[0].value;
+                });
+            }
+            */
 
             $scope.safeApply(function() {
                 $scope.value = counters[0].value;
             });
+
 
             var copiedMsg = angular.copy(data);
             var index = getCounterIndex(data);
@@ -163,7 +183,7 @@ angular.module('sbAdminApp')
         }
 
         $scope.$on("$destroy", function() {
-
+            destroyed = true;
         });
 
 
