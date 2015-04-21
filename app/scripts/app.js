@@ -137,6 +137,8 @@ angular
                             $ocLazyLoad.load({
                                 name: 'chart.js',
                                 files: [
+                                    //'scripts/dist/socket.io.js',
+                                    //'scripts/services/socket.js'
                                     //'bower_components/Chart.js/Chart.js',
                                     //'bower_components/angular-chart.js/dist/angular-chart.min.js',
                                     //'bower_components/angular-chart.js/dist/angular-chart.css'
@@ -144,7 +146,10 @@ angular
                             }),
                             $ocLazyLoad.load({
                                 name: 'sbAdminApp',
-                                files: ['scripts/controllers/chartContoller.js']
+                                files: ['scripts/controllers/chartContoller.js',
+                                    'scripts/dist/socket.io.js',
+                                    'scripts/services/socket.js'
+                                ]
                             })
                     }
                 }

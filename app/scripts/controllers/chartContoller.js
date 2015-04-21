@@ -7,9 +7,22 @@
  * Controller of the sbAdminApp
  */
 angular.module('sbAdminApp')
-    .controller('ChartCtrl', ['$scope', '$timeout', '$interval', function ($scope, $timeout, $interval) {
+    .controller('ChartCtrl', ['$scope', '$timeout', '$interval', 'socket', function ($scope, $timeout, $interval, socket) {
 
         //$interval($scope.changeData, 3000, 0, true);
+
+
+
+        socket.on('graph', function (msg) {
+            console.log('received graph message ------------');
+            console.log(msg);
+
+            $scope.line.data[msg.name].unshift(msg.value);
+            $scope.line.data[msg.name].pop();
+
+
+        });
+
 
         $scope.changeData = function () {
             var data = [88, 22, 30, 90, 2, 78, 4];

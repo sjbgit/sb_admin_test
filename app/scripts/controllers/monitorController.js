@@ -45,6 +45,8 @@ angular.module('sbAdminApp')
             var counters = data.counters;
             console.log('received counter message ------------');
             console.log(counters[0].value);
+            
+
             $scope.safeApply(function() {
                 $scope.value = counters[0].value;
             });
