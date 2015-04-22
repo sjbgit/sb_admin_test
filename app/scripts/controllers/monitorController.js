@@ -20,7 +20,7 @@ angular.module('sbAdminApp')
             }
             */
             if (destroyed) {
-                return; 
+                return;
             }
             var phase = this.$root.$$phase;
             if (phase == '$apply' || phase == '$digest') {
