@@ -35,7 +35,7 @@ angular.module('sbAdminApp')
         $scope.changeValue = function() {
 
             $scope.safeApply(function() {
-                $scope.value = 3;
+                $scope.value = 30;
             });
 
             //$scope.value = 3;
