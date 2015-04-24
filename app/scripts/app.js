@@ -115,6 +115,23 @@ angular
                     }
                 }
             })
+            .state('dashboard.redis', {
+                templateUrl: '/views/redis.html',
+                controller: 'RedisCtrl',
+                url: '/redis',
+                resolve: {
+                    loadMyFiles: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: 'sbAdminApp',
+                            files: [
+                                'scripts/controllers/redisController.js',
+                                'scripts/dist/socket.io.js',
+                                'scripts/services/socket.js'
+                            ]
+                        })
+                    }
+                }
+            })
             .state('dashboard.form', {
                 templateUrl: '/views/form.html',
                 url: '/form'
