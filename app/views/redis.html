@@ -32,11 +32,24 @@
                 <tbody>
 
                 <tr ng-repeat="headerItem in rs.items">
-                    <td class="span9" ng-bind="headerItem.name + headerItem.values.length">
+                    <!--<td class="span9" ng-bind="headerItem.name + headerItem.values.length + 'x'">-->
 
+                    <td class="span9">
+                        <div>
+                            {{headerItem.name + headerItem.values.length}}
+                            <br/>
+                            <ul ng-repeat="value in headerItem.values">
+                            </ul>
+                        </div>
+
+                    </td>
+
+
+                        <!--
                         <ul ng-repeat="v in headerItem.values">
                             <li>{{v.value}}</li>
                         </ul>
+                        -->
 
                         <!--
                         <table class="table table-striped table-bordered" ng-repeat="values in headerItem.values">
