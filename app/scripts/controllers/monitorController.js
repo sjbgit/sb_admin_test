@@ -9,6 +9,13 @@ angular.module('sbAdminApp')
 
         $scope.machineCounters = [];
 
+        $scope.$watch('value1', function () {
+            console.log('watch in value1');
+
+            //if (!initialized) return;
+            //update();
+        }, true);
+
 
 
         $scope.safeApply = function (fn) {
@@ -67,7 +74,8 @@ angular.module('sbAdminApp')
             */
 
             $scope.safeApply(function() {
-                $scope.value = counters[0].value; //this is going to gauge
+                //$scope.value = counters[0].value; //this is going to gauge
+                $scope.value1 = counters[0].value;
             });
 
 
@@ -85,6 +93,10 @@ angular.module('sbAdminApp')
                 $scope.machineCounters[index]['counterObject'] = copiedMsg;
             }
 
+
+            $scope[data.machine] = counters[0].value;
+
+            //$scope.value1 = counters[0].value;
 
         });
 
@@ -125,8 +137,10 @@ angular.module('sbAdminApp')
 
         function setPerfCounterInfo() {
 
+            $scope.test_name2 = 8;
+
             //pass this into directive - with a name and id?
-            $scope.value = 50;
+            $scope.value = 0;
             $scope.upperLimit = 100;
             $scope.lowerLimit = 0;
             $scope.unit = "% CPU";

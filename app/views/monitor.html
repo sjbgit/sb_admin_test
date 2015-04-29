@@ -27,6 +27,20 @@
 
                     <thead>
                     <tr>
+                        <!--
+                        <th>
+                            {{$index}}
+                        </th>
+                        -->
+
+                        <th class="span6">
+                            <div width="200" ng-radial-gauge1 ranges="ranges" value="value" value-unit="% CPU"
+                                 watch-property-name="{{mc.counterObject.machine}}"
+                                 precision="precision" lower-limit="lowerLimit" upper-limit="upperLimit">
+
+                            </div>
+                        </th>
+
                         <th class="span6">
                             <div width="100" ng-radial-gauge ranges="ranges" value="value" value-unit="unit"
                                  precision="precision" lower-limit="lowerLimit" upper-limit="upperLimit">
