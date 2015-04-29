@@ -42,4 +42,7 @@ angular.module('sbAdminApp')
         }
 
 
+        $scope.isCollapsed = false;
+
+
     }]);

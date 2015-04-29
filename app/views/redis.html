@@ -15,6 +15,38 @@
 
     </div>
     <div class="row">
+<!--
+        <div ng-init="isCollapsed = false">
+            <button ng-model="hotel" class="btn btn-default"
+                    ng-click="isCollapsed = !isCollapsed">load weather</button>
+
+            <hr>
+
+            <div collapse="isCollapsed">
+                <div class="well well-lg">Some content</div>
+            </div>
+        </div>
+-->
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <div ng-click="isCollapsed = !isCollapsed">
+                        Collapsible Group Item #1
+                    </div>
+
+                </h4>
+            </div>
+            <div collapse="isCollapsed">
+                <div class="panel-body">Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="row">
         <div class="span12">
             <!-- main item -->
             <table class="table table-striped table-bordered" ng-repeat="rs in redisServers">
@@ -24,16 +56,73 @@
                     <th class="span9">{{rs.name}} - {{rs.dateTime}}</th>
                     <!-- {{mc.counters[0].value | number:2}}%  - {{mc.dateTime}} </th> -->
                 </tr>
+                <!--
                 <tr>
                     <th class="span9">Counter</th>
-                    <!--<th class="span7">Value</th>-->
+
                 </tr>
+                -->
                 </thead>
                 <tbody>
 
-                <tr ng-repeat="headerItem in rs.items">
-                    <!--<td class="span9" ng-bind="headerItem.name + headerItem.values.length + 'x'">-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <div ng-click="isCollapsed = !isCollapsed">
+                                Collapsible Group Item #1
+                            </div>
 
+                        </h4>
+                    </div>
+                    <div collapse="isCollapsed">
+                        <div class="panel-body">Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <tr ng-repeat="headerItem in rs.items">
+
+                    <td>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <div ng-click="isCollapsed = !isCollapsed">
+                                        {{headerItem.name}}
+                                    </div>
+
+                                </h4>
+                            </div>
+                            <div collapse="isCollapsed">
+                                <ul ng-repeat="kv in headerItem.keyValues">
+                                    <li>{{kv[0]}}: {{kv[1]}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+
+                    <!--
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <div ng-click="isCollapsed = !isCollapsed">
+                                    {{headerItem.name}}
+                                </div>
+
+                            </h4>
+                        </div>
+                        <div collapse="isCollapsed">
+                            <ul ng-repeat="kv in headerItem.keyValues">
+                                <li>{{kv[0]}}: {{kv[1]}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    -->
+
+
+<!--
                     <td class="span9">
                         <div>
                             {{headerItem.name}}
@@ -43,40 +132,15 @@
                                 <li>{{kv[0]}}: {{kv[1]}}</li>
                             </ul>
 
-                            <!--
-                            <ul ng-repeat="value in headerItem.values">
-                                <li>{{value}} + test</li>
-                            </ul>
 
-                            -->
                         </div>
 
                     </td>
 
+-->
 
-                        <!--
-                        <ul ng-repeat="v in headerItem.values">
-                            <li>{{v.value}}</li>
-                        </ul>
-                        -->
 
-                        <!--
-                        <table class="table table-striped table-bordered" ng-repeat="values in headerItem.values">
-                            <thead>
-                            <tr>
-                                <th class="span9">Name</th>
-                                <th class="span7">Value</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr ng-repeat="ctr in values in headerItem.values">
-                                <td class="span2" ng-bind="ctr.counter"></td>
-                                <td class="span7" ng-bind="ctr.value"></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        -->
-                    </td>
+
                 </tr>
 
                 </tbody>
