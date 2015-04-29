@@ -67,7 +67,7 @@ angular.module('sbAdminApp')
             */
 
             $scope.safeApply(function() {
-                $scope.value = counters[0].value;
+                $scope.value = counters[0].value; //this is going to gauge
             });
 
 
@@ -77,15 +77,32 @@ angular.module('sbAdminApp')
             console.log('returned index ' + index);
 
             if (index === -1) {
-                $scope.machineCounters.push(copiedMsg);
+                $scope.machineCounters.push({ counterObject: copiedMsg });   //copiedMsg);
             }
             else {
-                $scope.machineCounters[index] = copiedMsg;
+                //does machine counter need to be an object with a message property, then
+                //update the message property? - prevent UI from re-drawing?
+                $scope.machineCounters[index]['counterObject'] = copiedMsg;
             }
 
 
         });
 
+        function getCounterIndex(counter) {
+            var index = -1;
+            var arrayLength = $scope.machineCounters.length;
+            for (var i = 0; i < arrayLength; i++) {
+                console.log($scope.machineCounters[i].counterObject.machine);
+                if ($scope.machineCounters[i].counterObject.machine === counter.machine) {
+                    index = i;
+                    break
+                }
+            }
+            return index;
+        }
+
+
+        /*
         function getCounterIndex(counter) {
             var index = -1;
             var arrayLength = $scope.machineCounters.length;
@@ -99,6 +116,7 @@ angular.module('sbAdminApp')
             return index;
         }
 
+        */
 
         setPerfCounterInfo();
 

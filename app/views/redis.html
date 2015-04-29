@@ -36,10 +36,19 @@
 
                     <td class="span9">
                         <div>
-                            {{headerItem.name + headerItem.values.length}}
+                            {{headerItem.name}}
                             <br/>
-                            <ul ng-repeat="value in headerItem.values">
+
+                            <ul ng-repeat="kv in headerItem.keyValues">
+                                <li>{{kv[0]}}: {{kv[1]}}</li>
                             </ul>
+
+                            <!--
+                            <ul ng-repeat="value in headerItem.values">
+                                <li>{{value}} + test</li>
+                            </ul>
+
+                            -->
                         </div>
 
                     </td>

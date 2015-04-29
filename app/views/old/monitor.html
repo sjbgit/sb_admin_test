@@ -33,7 +33,7 @@
 
                             </div>
                         </th>
-                        <th class="span6">{{mc.counterObject.machine}} {{mc.counterObject.counters[0].value | number:2}}%  - {{mc.counterObject.dateTime}} </th>
+                        <th class="span6">{{mc.machine}} {{mc.counters[0].value | number:2}}%  - {{mc.dateTime}} </th>
                         <!--
                         <th class="span6">
                             <div width="100" ng-radial-gauge ranges="ranges" value="value" value-unit="unit"
@@ -49,7 +49,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="ctr in mc.counterObject.counters">
+                    <tr ng-repeat="ctr in mc.counters">
                         <td class="span2" ng-bind="ctr.counter"></td>
                         <td class="span7" ng-bind="ctr.value"></td>
                     </tr>
